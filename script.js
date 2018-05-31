@@ -12,3 +12,58 @@ $(function() {
 	});
 
 });
+
+$(function() {
+  $('#lhbtn').on('click', function() {
+    $('#overlay, #modalWindow').fadeIn();
+  });
+  
+  $('#close').on('click', function() {
+    $('#overlay, #modalWindow').fadeOut();
+  });
+  
+  locateCenter();
+  $(window).resize(locateCenter);
+
+  function locateCenter() {
+    let w = $(window).width();
+    let h = $(window).height();
+    
+    let cw = $('#modalWindow').outerWidth();
+    let ch = $('#modalWindow').outerHeight();
+   
+    $('#modalWindow').css({
+      'left': ((w - cw) / 2) + 'px',
+      'top': ((h - ch) / 2) + 'px'
+    });
+  }
+});
+
+$(function() {
+  $('#dhbtn').on('click', function() {
+    $('#doverlay, #dmodalWindow').fadeIn();
+  });
+  
+  $('#dclose').on('click', function() {
+    $('#doverlay, #dmodalWindow').fadeOut();
+  });
+  
+  locateCenter();
+  $(window).resize(locateCenter);
+
+  function locateCenter() {
+    let w = $(window).width();
+    let h = $(window).height();
+    
+    let cw = $('#dmodalWindow').outerWidth();
+    let ch = $('#dmodalWindow').outerHeight();
+   
+    $('#dmodalWindow').css({
+      'left': ((w - cw) / 2) + 'px',
+      'top': ((h - ch) / 2) + 'px'
+    });
+  }
+});
+
+
+

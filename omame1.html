@@ -13,30 +13,36 @@
 <body>
 <div class="menu">
 	<ul id="tab">
-		<li><a href="#">OMAME</a></li>
-		<li><a href="#">Lunch</a></li>
-		<li><a href="#">Dinner</a></li>
-		<li><a href="#">お気に入り</a></li>
+		<li><a href="#" class="omenu">OMAME</a></li>
+		<li><a href="#" class="lmenu">Lunch</a></li>
+		<li><a href="#" class="dmenu">Dinner</a></li>
+		<li><a href="#" class="fmenu">お気に入り</a></li>
 	</ul>
 </div>
 <div class="panel-wrapper">
 	<div class="omame">
-		<h1>omame</h1>
+		
 
 	</div><!-- omame -->
 
 	<div class="lunch">
 	 <div class="left">
-		<div class="button">
+		<!-- <div class="button"> -->
 			<ul>
-				<li><button type="button" class="button">10分</button></li>
-				<li><button type="button" class="button">15分</button></li>
-				<li><button type="button" class="button">20分</button></li>
-				<li><button type="button" class="button">30分</button></li>
+				<li><button type="button" class="mbutton">10分</button></li>
+				<li><button type="button" class="mbutton">15分</button></li>
+				<li><button type="button" class="mbutton">20分</button></li>
+				<li><button type="button" class="mbutton">30分</button></li>
 			</ul>
-		</div>	
-		<p><img src="abo.jpeg" alt=""></p>
+		<!-- </div>	 -->
+		<div class="lphoto">
+		 <p><img src="abo.jpeg" alt="" class="limg"></p>
+	  </div>
 	</div>
+	 <div class="midle">
+		<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
+		<input type="image" src="omame_moyashi.png" class="chara" alt=""> 
+	 </div>
 	 <div class="right">
 		<div class="syokuzai">
 			<h2>食材</h2>
@@ -52,27 +58,94 @@
 				<li>#</li>
 				<li>#</li>
 				<li>#</li>
+				<li>#</li>
+				<li>#</li>
+				<li>#</li>
+				<li>#</li>
+				<li>#</li>
 			</ul>
 		</div>
-		 <button type="button" class="how_button">作り方</button>
+		 <button type="button" class="how_button" id="lhbtn">作り方</button>
+		 <div id="overlay"></div>
+		 <div id="modalWindow">
+			<h4>作り方</h4>
+			<p>################</p>
+		 <button id="close">Close</button>
+		 
+		</div>
 	 </div>
-
-
 	</div><!-- lunch -->
 
 	<div class="dinner">
-		<ul>
-			<li><button type="button" class="button">10分</button></li>
-			<li><button type="button" class="button">15分</button></li>
-			<li><button type="button" class="button">20分</button></li>
-			<li><button type="button" class="button">30分</button></li>
-		</ul>
-
-		<img src="#" alt="">
+		 <div class="midle">
+				<input type="image" src="omame_moyashi.png" class="chara" alt="">
+				<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
+				 </div>	
+		 <div class="left">
+					<!-- <div class="button"> -->
+				<p>主菜</p>		
+				<ul>
+					<li><button type="button" class="dmbutton">10分</button></li>
+					<li><button type="button" class="dmbutton">15分</button></li>
+					<li><button type="button" class="dmbutton">20分</button></li>
+					<li><button type="button" class="dmbutton">30分</button></li>
+				</ul>
+				<p>副菜</p>		
+				<ul>
+						<li><button type="button" class="dmbutton">10分</button></li>
+						<li><button type="button" class="dmbutton">15分</button></li>
+						<li><button type="button" class="dmbutton">20分</button></li>
+						<li><button type="button" class="dmbutton">30分</button></li>
+				</ul>
+					<!-- </div>	 -->
+				<div class="lphoto">
+					<img src="abo.jpeg" alt="" class="mainimg">
+					<img src="abo.jpeg" alt="" class="subimg">
+				</div>
+			 </div>
+			   <div class="midle">
+					<input type="image" src="omame_moyashi.png" class="chara" alt=""> 
+					<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
+				 </div>
+				 <div class="right">
+					<div class="syokuzai">
+						<h2>食材</h2>
+						<select name="servings">
+							<option value=”1serving”>1人前</option>
+							<option value=”2servings”>２人前</option>
+							<option value="3servings">３人前</option>
+							<option value="4servings">４人前</option>
+						</select>
+						<ul>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+							<li>#</li>
+						</ul>
+					</div>
+					  <button type="button" class="how_button" id="dhbtn">作り方</button>
+					  <div id="doverlay"></div>
+            <div id="dmodalWindow">
+							<h4>作り方</h4>
+							<p>################</p>
+						<button id="dclose">Close</button>
+            </div>
+				 </div>
 	</div><!-- dinner -->
 
 	<div class="fav">
 		<ul>
+			<li>#</li>
+			<li>#</li>
+			<li>#</li>
+			<li>#</li>
+			<li>#</li>
 			<li>#</li>
 			<li>#</li>
 			<li>#</li>
