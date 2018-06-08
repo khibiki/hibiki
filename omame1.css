@@ -34,7 +34,7 @@ body{
 	z-index:0;}
 
 .lmenu{
-	width:100%; 
+	width:100%;
 	background:rgb(247, 140, 53); 
 	padding: 3px; 
 	border:6px solid rgb(247, 140, 53); 
@@ -140,24 +140,10 @@ body{
 		display: flex;
 }
 
+option{
+	display: inline;
+}
 
-.mbutton{
-	display:inline-block;
-	margin: 25px 20px 40px 60px;
-	padding: 10px 20px 10px 20px;
-	text-align: center;
-	border:6px solid rgb(247, 140, 53); 
-	border-radius:2% 12% 2% 12%/ 22% 8% 22% 8%; 
-	position:relative;
-	font-size: 15px;
-	color: #000;
-	text-decoration: none;
-}
-.mbutton:hover,
-.mbutton:focus{
-	background-color: rgb(252, 211, 101);
-	outline: none;
-}
 
 .dmbutton{
 	display:inline-block;
@@ -177,8 +163,10 @@ body{
 	background-color: rgb(218, 225, 248);
 	outline: none;
 }
-
-
+.left p{
+	margin: 5px 0 5px 70px;
+	font-size: 20px;
+}
 .limg{
 	display: block;
 	margin: 20px 0px 20px 70px;
@@ -203,7 +191,6 @@ body{
 .lphoto{
 	display:flex;
 }
-
 .right{
 	margin: 0 10px 0 5px;
 }
@@ -221,9 +208,15 @@ body{
 	font-size: 30px;
 	margin: 30px 0 10px 0;
 }
-p{
+.syokuzai p{
 	font-size: 16px;
 	margin: 5px 0 0 0;
+}
+
+.lzairyo,.dzairyo {
+	width: 450px;
+	height: 350px;
+	overflow:auto;
 }
 
 .how_button{

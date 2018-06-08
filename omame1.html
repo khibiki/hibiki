@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>OMAME</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="omame1.css">
 
 </head>
@@ -28,15 +27,31 @@
 	<div class="lunch">
 	 <div class="left">
 		<!-- <div class="button"> -->
-			<ul>
+		<p>料理時間：
+			<input type="radio" name="10min" value="10min">10分
+			<input type="radio" name="15min" value="15min">15分
+			<input type="radio" name="20min" value="20min">20分
+			<input type="radio" name="30min" value="30min">30分
+			<select name="minutes">	
+				<option value=”40min”>40分</option>
+				<option value=”45min”>45分</option>
+				<option value="60min">60分</option>
+				<option value="90min">90分</option>
+				<option value="200min">200分</option>
+			</select>
+		</p>
+			<!-- <ul>
+		
 				<li><button type="button" class="mbutton">10分</button></li>
 				<li><button type="button" class="mbutton">15分</button></li>
 				<li><button type="button" class="mbutton">20分</button></li>
 				<li><button type="button" class="mbutton">30分</button></li>
-			</ul>
+			</ul> -->
+		  <p class="ryourimei">料理名</p>	
 		<!-- </div>	 -->
 		<div class="lphoto">
-		 <p><img src="abo.jpeg" alt="" class="limg"></p>
+		 <!-- <p>####################</p>	 -->
+		 <img src="abo.jpeg" alt="" class="limg">
 	  </div>
 	</div>
 	 <div class="midle">
@@ -52,18 +67,32 @@
 				<option value="3servings">３人前</option>
 				<option value="4servings">４人前</option>
 			</select>
-			<ul>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-				<li>#</li>
-			</ul>
+			<div class="lzairyo">
+			 <ul>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+				 <li>#</li>
+			 </ul>
+			</div>
 		</div>
 		 <button type="button" class="how_button" id="lhbtn">作り方</button>
 		 <div id="overlay"></div>
@@ -83,24 +112,52 @@
 				 </div>	
 		 <div class="left">
 					<!-- <div class="button"> -->
-				<p>主菜</p>		
-				<ul>
+				<p>主菜
+				<input type="radio" name="10min" value="10min">10分
+				<input type="radio" name="15min" value="15min">15分
+				<input type="radio" name="20min" value="20min">20分
+				<input type="radio" name="30min" value="30min">30分
+			  <select name="minutes">	
+					<option value=”40min”>40分</option>
+					<option value=”45min”>45分</option>
+					<option value="60min">60分</option>
+					<option value="90min">90分</option>
+					<option value="200min">200分</option>
+			  </select></p>		
+				<!-- <ul>
 					<li><button type="button" class="dmbutton">10分</button></li>
 					<li><button type="button" class="dmbutton">15分</button></li>
 					<li><button type="button" class="dmbutton">20分</button></li>
 					<li><button type="button" class="dmbutton">30分</button></li>
-				</ul>
-				<p>副菜</p>		
-				<ul>
+				</ul> -->
+				<p>副菜
+				<input type="radio" name="10min" value="10min">10分
+				<input type="radio" name="15min" value="15min">15分
+				<input type="radio" name="20min" value="20min">20分
+				<input type="radio" name="30min" value="30min">30分
+			  <select name="minutes">	
+					<option value=”40min”>40分</option>
+					<option value=”45min”>45分</option>
+					<option value="60min">60分</option>
+					<option value="90min">90分</option>
+					<option value="200min">200分</option>
+			  </select></p>		
+				<!-- <ul>
 						<li><button type="button" class="dmbutton">10分</button></li>
 						<li><button type="button" class="dmbutton">15分</button></li>
 						<li><button type="button" class="dmbutton">20分</button></li>
 						<li><button type="button" class="dmbutton">30分</button></li>
-				</ul>
+				</ul> -->
 					<!-- </div>	 -->
 				<div class="lphoto">
-					<img src="abo.jpeg" alt="" class="mainimg">
-					<img src="abo.jpeg" alt="" class="subimg">
+					<div class="left">
+						<p>料理名</p>
+						<img src="abo.jpeg" alt="" class="mainimg">
+					</div>
+					<div class="right">
+						<p>料理名</p>
+						<img src="abo.jpeg" alt="" class="subimg">
+					</div>
 				</div>
 			 </div>
 			   <div class="midle">
@@ -116,18 +173,29 @@
 							<option value="3servings">３人前</option>
 							<option value="4servings">４人前</option>
 						</select>
-						<ul>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-							<li>#</li>
-						</ul>
+						 <div class="dzairyo">
+							<ul>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+								<li>#</li>
+							</ul>
+						 </div>	
 					</div>
 					  <button type="button" class="how_button" id="dhbtn">作り方</button>
 					  <div id="doverlay"></div>
@@ -140,18 +208,32 @@
 	</div><!-- dinner -->
 
 	<div class="fav">
-		<ul>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-			<li>#</li>
-		</ul>
+	 <table class="">
+	  <thead>
+			<tbody>
+				<tr>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>		
+				</tr>
+				<tr>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>		
+				</tr>
+				<tr>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>
+						<td>#<p>料理名</p></td>		
+				</tr>
+
+			</tbody>
+		</thead>
+
+	 </table>
 		<img src="#" alt="">
 	</div><!-- fav -->
 
