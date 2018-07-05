@@ -6,7 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>OMAME</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="omame1.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js">
+	<link rel="stylesheet" href="{{ url_for('static' , filename='omame1.css') }}">
+	<!-- <link rel="stylesheet" href="study/omame1.css/oma/me1.css"> -->
 
 </head>
 <body>
@@ -23,16 +25,18 @@
 		
 
 	</div><!-- omame -->
-
+	
 	<div class="lunch">
+	<form method="post" action="/">
 	 <div class="left">
 		<!-- <div class="button"> -->
 		<p>料理時間：
-			<input type="radio" name="10min" value="10min">10分
-			<input type="radio" name="15min" value="15min">15分
-			<input type="radio" name="20min" value="20min">20分
-			<input type="radio" name="30min" value="30min">30分
+			<input type="radio" name="lmin" value="10min">10分
+			<input type="radio" name="lmin" value="15min">15分
+			<input type="radio" name="lmin" value="20min">20分
+			<input type="radio" name="lmin" value="30min">30分
 			<select name="minutes">	
+				<option value=”na”>もっと長い時間</option>
 				<option value=”40min”>40分</option>
 				<option value=”45min”>45分</option>
 				<option value="60min">60分</option>
@@ -47,17 +51,54 @@
 				<li><button type="button" class="mbutton">20分</button></li>
 				<li><button type="button" class="mbutton">30分</button></li>
 			</ul> -->
-		  <p class="ryourimei">料理名</p>	
+		  <p class="ryourimei">料理名：{{show_info_lunch.name_mainimg_lunch}}</p>	
 		<!-- </div>	 -->
 		<div class="lphoto">
 		 <!-- <p>####################</p>	 -->
-		 <img src="abo.jpeg" alt="" class="limg">
-	  </div>
+		 <img src="{{ url_for('static' , filename=show_info_lunch.mainimg) }}" alt="" class="limg">
+		 
+		 <!--星野移動_1-->
+		 <input type="image" name="change_lunch" src="{{ url_for('static' , filename='omame_moyashi.png') }}" class="chara" alt="">
+		 
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+		<canvas id="myChart" width="100" height="100"></canvas>
+		<script>
+		var ctx = document.getElementById("myChart").getContext('2d'); ctx.canvas.height = 280;
+		var myChart = new Chart(ctx, {
+				type: 'radar',
+				data: {
+						labels: ["たんぱく質", "脂質", "炭水化物", "食物繊維", "鉄", "Ca","塩"],
+						datasets: [{
+								label: '料理名',
+								data: [80, 90, 13, 15,12, 13,4],
+									 backgroundColor:["rgba(255, 99, 132, 0.2)"],
+									 borderColor: ['rgba(255,99,132,1)'],
+								borderWidth: 1
+						}]
+				},
+				options: {
+						scale: {
+								 ticks: {suggestedMin:0,
+														suggestedMax:100,
+												beginAtZero:true
+										}
+						}
+				}
+		});
+		</script>
+
+<!-- </body>
+</html> -->
+		
 	</div>
 	 <div class="midle">
 		<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
-		<input type="image" src="omame_moyashi.png" class="chara" alt=""> 
+		
+		<!--星野移動_1-->
+		<!-- <input type="image" name="change_lunch" src="{{ url_for('static' , filename='omame_moyashi.png') }}" class="chara" alt=""> -->
 	 </div>
+	 </form>
 	 <div class="right">
 		<div class="syokuzai">
 			<h2>食材</h2>
@@ -69,28 +110,9 @@
 			</select>
 			<div class="lzairyo">
 			 <ul>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
-				 <li>#</li>
+				 {% for text in show_info_lunch.notation_ingredients %}
+				 	<li>{{ text }}</li>
+				 {% endfor %} 
 			 </ul>
 			</div>
 		</div>
@@ -98,7 +120,9 @@
 		 <div id="overlay"></div>
 		 <div id="modalWindow">
 			<h4>作り方</h4>
-			<p>################</p>
+			{% for text in show_info_lunch.how_to_cook %}
+				{{ text }}<br> 
+			{% endfor %}
 		 <button id="close">Close</button>
 		 
 		</div>
@@ -106,18 +130,23 @@
 	</div><!-- lunch -->
 
 	<div class="dinner">
-		 <div class="midle">
-				<input type="image" src="omame_moyashi.png" class="chara" alt="">
-				<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
-				 </div>	
+	<form method="post" action="/">
+	<!--星野コメント化-->
+	
+	<!-- <div class="midle">-->
+			<!-- <input type="image" src="{{ url_for('static' , filename='omame_moyashi.png') }}" class="chara" alt="">-->
+			<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
+	<!-- </div>-->
+	
 		 <div class="left">
 					<!-- <div class="button"> -->
 				<p>主菜
-				<input type="radio" name="10min" value="10min">10分
-				<input type="radio" name="15min" value="15min">15分
-				<input type="radio" name="20min" value="20min">20分
-				<input type="radio" name="30min" value="30min">30分
+				<input type="radio" name="min" value="10min">10分
+				<input type="radio" name="min" value="15min">15分
+				<input type="radio" name="min" value="20min">20分
+				<input type="radio" name="min" value="30min">30分
 			  <select name="minutes">	
+					<option value=”na”>もっと長い時間</option>
 					<option value=”40min”>40分</option>
 					<option value=”45min”>45分</option>
 					<option value="60min">60分</option>
@@ -131,11 +160,12 @@
 					<li><button type="button" class="dmbutton">30分</button></li>
 				</ul> -->
 				<p>副菜
-				<input type="radio" name="10min" value="10min">10分
-				<input type="radio" name="15min" value="15min">15分
-				<input type="radio" name="20min" value="20min">20分
-				<input type="radio" name="30min" value="30min">30分
+				<input type="radio" name="submin" value="10min">10分
+				<input type="radio" name="submin" value="15min">15分
+				<input type="radio" name="submin" value="20min">20分
+				<input type="radio" name="submin" value="30min">30分
 			  <select name="minutes">	
+					<option value=”na”>もっと長い時間</option>
 					<option value=”40min”>40分</option>
 					<option value=”45min”>45分</option>
 					<option value="60min">60分</option>
@@ -151,19 +181,27 @@
 					<!-- </div>	 -->
 				<div class="lphoto">
 					<div class="left">
-						<p>料理名</p>
-						<img src="abo.jpeg" alt="" class="mainimg">
+						<p>料理名：{{show_info_dinner.name_mainimg}}</p>
+						<img src="{{ url_for('static' , filename=show_info_dinner.mainimg) }}" alt="" class="mainimg">
 					</div>
 					<div class="right">
-						<p>料理名</p>
-						<img src="abo.jpeg" alt="" class="subimg">
+						<p>料理名：{{show_info_dinner.name_subimg}}</p>
+						<img src="{{ url_for('static' , filename=show_info_dinner.subimg) }}" alt="" class="subimg">
 					</div>
+					
+					<!--星野移動_2-->
+					<input type="image" name="change_dinner" src="{{ url_for('static' , filename='omame_moyashi.png') }}" class="chara" alt="">
+					
 				</div>
 			 </div>
 			   <div class="midle">
-					<input type="image" src="omame_moyashi.png" class="chara" alt=""> 
+			   
+			   		<!--星野移動_2-->
+					<!--<input type="image" src="{{ url_for('static' , filename='omame_moyashi.png') }}" class="chara" alt="">-->
+					
 					<!-- <img src="omame_moyashi.png" class="chara" alt="#">  -->
 				 </div>
+		</form>
 				 <div class="right">
 					<div class="syokuzai">
 						<h2>食材</h2>
@@ -175,25 +213,9 @@
 						</select>
 						 <div class="dzairyo">
 							<ul>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
-								<li>#</li>
+								{% for text in show_info_dinner.notation_ingredients %}
+									<li>{{ text }}</li>
+								{% endfor %}
 							</ul>
 						 </div>	
 					</div>
@@ -201,47 +223,79 @@
 					  <div id="doverlay"></div>
             <div id="dmodalWindow">
 							<h4>作り方</h4>
-							<p>################</p>
+							<p>
+								{% for text in show_info_dinner.how_to_cook %}
+									{{ text }}<br>
+								{% endfor %}
+							</p>
 						<button id="dclose">Close</button>
             </div>
 				 </div>
 	</div><!-- dinner -->
 
 	<div class="fav">
+	
+	<div style="height:550px; width:100%; ; overflow:scroll;">
+	<form method="post" action="/">
 	 <table class="">
 	  <thead>
 			<tbody>
-				<tr>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>		
-				</tr>
-				<tr>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>		
-				</tr>
-				<tr>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>
-						<td>#<p>料理名</p></td>		
-				</tr>
-
+				<!--
+					<tr>
+						<td>
+							【★：３】
+						</td>
+						<td>
+							<p>　　＊＊＊＊＊＊＊＊＊＊＊</p>
+							<input type="image" name="fav_info_*;*;_2_*;*;_1111_*;*;_1135" src="{{ url_for('static' , filename='omame_moyashi.png') }}" alt="">
+						</td>
+						<td>
+							<p>料理名：{{name_mainimg_dinner}}</p>
+							<p><img src="{{ url_for('static' , filename=mainimg_dinner) }}" alt="" class="mainimg"></p>
+						</td>
+						<td>
+							<p>料理名：{{name_subimg_dinner}}</p>
+							<img src="{{ url_for('static' , filename=subimg_dinner) }}" alt="" class="subimg">
+						</td>
+					</tr>
+				-->
+				
+				{% for fav in list_user_fav_info_all%}
+					<tr>
+						<td>
+							【★：{{fav.favorite_click_num}}】
+						</td>
+						<td>
+							<br>
+							<input type="image" name={{fav.fav_button_name}} src="{{ url_for('static' , filename='omame_moyashi.png') }}" class="fav_chara" alt="">
+						</td>
+						
+						{% for name_and_path in fav.list_dict_cuisine_name_img_path%}
+						
+							<td>
+								<p>料理名：{{name_and_path.cuisine_name}}</p>
+								<p><img src="{{ url_for('static' , filename=name_and_path.img_path) }}" alt="" class="favimg"></p>
+							</td>
+						
+						{% endfor %}
+						
+						
+					</tr>
+				{% endfor %}
+				
 			</tbody>
 		</thead>
-
 	 </table>
+	 </form>
+	 </div>
 		<img src="#" alt="">
 	</div><!-- fav -->
 
 </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="script.js"></script>
+<script src="{{ url_for('static' , filename='script.js') }}"></script>
 	
 </body>
 </html>

@@ -338,3 +338,19 @@ h4{
 .chara:focus{
 	outline: none;
 }
+
+.fav_chara{
+	height: 200px;
+	width: auto;
+	padding: 0;	
+}
+.fav_chara:focus{
+	outline: none;
+}
+
+.favimg{
+	margin: 20px 10px 2px 2px;
+	width: auto;
+	height: 200px;
+	border-radius: 30px;
+}
